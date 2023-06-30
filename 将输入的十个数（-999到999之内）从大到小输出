@@ -1,0 +1,50 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+int Max(int max,int min)
+{
+	return max>min?max:min;
+}
+int main()
+{
+	int i=0,m=0,n=0;
+	int a[10],b[10];
+	for(m=0;m<10;m++)
+		b[m]=-999;
+	for(i=0;i<10;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	for(n=0;n<10;n++)
+	{
+		b[0]=Max(b[0],a[n]);
+	}
+	for(i=0;i<10;i++)
+	{
+		if(b[0]==a[i])
+		    a[i]=-999;
+	}
+	for(m=1;m<10;m++)
+	{
+		i=0;
+		for(n=0;n<9;n++)
+		{
+		    b[m]=Max(b[m],a[i+n]);
+		}
+		for(i=0;i<10;i++)
+	    {
+		    if(b[m]==a[i])
+		        a[i]=-999;
+	    }
+    }
+	for(m=0;m<10;m++)
+	{
+	    printf("%d ",b[m]);
+	}
+	printf("\n");
+	for(i=0;i<10;i++)
+	{
+	    printf("%d ",a[i]);
+	}
+	return 0;
+} 
